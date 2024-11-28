@@ -110,7 +110,7 @@ jobs:
 
       - name: 开启 SSH 服务 (Start SSH service)
         uses: mxschmitt/action-tmate@v3
-        timeout-minutes: 15
+        timeout-minutes: 20
         # with:
         #   wait-timeout-minutes: 20
 
