@@ -21,7 +21,6 @@ on:
 
 jobs:
   build-ssh-config:
-    if: ${{inputs.ssh-config == true}}
     name: 🚀 输出config (Build) - SSH
     runs-on: ubuntu-latest
     steps:
