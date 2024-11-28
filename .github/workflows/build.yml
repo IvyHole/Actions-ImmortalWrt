@@ -107,12 +107,24 @@ jobs:
           repository: '${{inputs.owner}}/${{inputs.repo}}'
           ref: ${{inputs.branch}}
           path: ImmortalWrt
+        
+      - name: 运行 diy.sh (Run diy.sh)
+        working-directory: ImmortalWrt
+        run: |
+          chmod +x diy.sh
+          ./diy.sh
 
       - name: 开启 SSH 服务 (Start SSH service)
         uses: mxschmitt/action-tmate@v3
         timeout-minutes: 20
         # with:
         #   wait-timeout-minutes: 20
+
+      - name: 运行 diy-behind.sh (Run diy-behind.sh)
+        working-directory: ImmortalWrt
+        run: |
+          chmod +x diy-behind.sh
+          ./diy-behind.sh
 
       - name: 编译前上传配置 (Upload config before build)
         uses: actions/upload-artifact@v4
