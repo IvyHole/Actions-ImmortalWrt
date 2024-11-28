@@ -59,6 +59,12 @@ jobs:
         run: |
           chmod +x diy-behind.sh
           ./diy-behind.sh
+          cp .config config-build.ini
+          
+      - name: 重命名config
+        working-directory: ImmortalWrt
+        run: |
+          cp .config config-build.ini
 
       - name: 编译前上传配置 (Upload config before build)
         uses: actions/upload-artifact@v4
@@ -66,4 +72,4 @@ jobs:
           name: config-config-build
           path: |
             ImmortalWrt/feeds.conf.default
-            ImmortalWrt/.config
+            ImmortalWrt/config-build.ini
